@@ -33,11 +33,11 @@ publishArtifact in Test := false
 pomIncludeRepository := { _ => false }
 
 publishTo := {
-  val nexus = "https://oss.sonatype.org/"
+  val nexus = "https://repos.zeroturnaround.com/nexus/"
   if (version.value.trim.endsWith("SNAPSHOT"))
-    Some("snapshots" at nexus + "content/repositories/snapshots")
+    Some("snapshots" at nexus + "content/repositories/st-snapshots")
   else
-    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+    Some("releases"  at nexus + "content/repositories/thirdparty")
 }
 
 credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
